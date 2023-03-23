@@ -1,4 +1,4 @@
-function updateLsTime() {
+function updateTime() {
   //Los Angeles
 
   let losAngelesElement = document.querySelector("#los-angeles");
@@ -11,16 +11,36 @@ function updateLsTime() {
     "h:mm:ss [<small>]A[</small>]"
   );
 }
-setInterval(updateLsTime, 1000);
 
-function updateParisTime() {
-  //Paris
-  let parisElement = document.querySelector("#paris");
-  let parisDateElement = parisElement.querySelector(".date");
-  let parisTimeElement = parisElement.querySelector(".time");
-  parisTime = moment().tz("Europe/Paris");
+//Paris
+let parisElement = document.querySelector("#paris");
+let parisDateElement = parisElement.querySelector(".date");
+let parisTimeElement = parisElement.querySelector(".time");
+parisTime = moment().tz("Europe/Paris");
 
-  parisDateElement.innerHTML = parisTime.format("MMMM Do YYYY");
-  parisTimeElement.innerHTML = parisTime.format("h:mm:ss [<small>]A[</small>]");
+parisDateElement.innerHTML = parisTime.format("MMMM Do YYYY");
+parisTimeElement.innerHTML = parisTime.format("h:mm:ss [<small>]A[</small>]");
+
+function updateCity(event) {
+  let cityTimeZone = event.target.value;
+  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+  let cityTime = moment().tz(cityTimeZone);
+  let citiesElement = document.querySelector("#cities");
+  citiesElement.innerHTML = `
+  <div class="city">
+    <div>
+      <h2>${cityName}</h2>
+      <div class="date">${cityTime.format("MMMM	Do YYYY")}</div>
+    </div>
+    <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format(
+    "A"
+  )}</small></div>
+  </div>
+  `;
 }
-setInterval(updateParisTime, 1000);
+
+updateTime();
+setInterval(updateTime, 1000);
+
+let citiesSelectElement = document.querySelector("#city");
+citiesSelectElement.addEventListener("change", updateCity);
