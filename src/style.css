@@ -1,6 +1,6 @@
 body {
   font-family: "Ubuntu", sans-serif;
-  background-color: #f9f7fe;
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 }
 h1 {
   text-align: center;
