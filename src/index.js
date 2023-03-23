@@ -10,17 +10,37 @@ function updateTime() {
   losAngelesTimeElement.innerHTML = losAngelesTime.format(
     "h:mm:ss [<small>]A[</small>]"
   );
+
+  //Paris
+  let parisElement = document.querySelector("#paris");
+  let parisDateElement = parisElement.querySelector(".date");
+  let parisTimeElement = parisElement.querySelector(".time");
+  parisTime = moment().tz("Europe/Paris");
+
+  parisDateElement.innerHTML = parisTime.format("MMMM Do YYYY");
+  parisTimeElement.innerHTML = parisTime.format("h:mm:ss [<small>]A[</small>]");
+
+  //Moscow
+  let moscowElement = document.querySelector("#moscow");
+  let moscowDateElement = moscowElement.querySelector(".date");
+  let moscowTimeElement = moscowElement.querySelector(".time");
+  moscowTime = moment().tz("Europe/Moscow");
+
+  moscowDateElement.innerHTML = moscowTime.format("MMMM Do YYYY");
+  moscowTimeElement.innerHTML = moscowTime.format(
+    "h:mm:ss [<small>]A[</small>]"
+  );
+  //Tahiti
+  let tahitiElement = document.querySelector("#tahiti");
+  let tahitiDateElement = tahitiElement.querySelector(".date");
+  let tahitiTimeElement = tahitiElement.querySelector(".time");
+  tahitiTime = moment().tz("Pacific/Tahiti");
+
+  tahitiDateElement.innerHTML = tahitiTime.format("MMMM Do YYYY");
+  tahitiTimeElement.innerHTML = tahitiTime.format(
+    "h:mm:ss [<small>]A[</small>]"
+  );
 }
-
-//Paris
-let parisElement = document.querySelector("#paris");
-let parisDateElement = parisElement.querySelector(".date");
-let parisTimeElement = parisElement.querySelector(".time");
-parisTime = moment().tz("Europe/Paris");
-
-parisDateElement.innerHTML = parisTime.format("MMMM Do YYYY");
-parisTimeElement.innerHTML = parisTime.format("h:mm:ss [<small>]A[</small>]");
-
 function updateCity(event) {
   let cityTimeZone = event.target.value;
   if (cityTimeZone === "current") {
@@ -39,6 +59,7 @@ function updateCity(event) {
     "A"
   )}</small></div>
   </div>
+  <span><a href="/">⬅️ back to all cities </a></span>
   `;
 }
 
