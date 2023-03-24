@@ -68,3 +68,12 @@ setInterval(updateTime, 1000);
 
 let citiesSelectElement = document.querySelector("#city");
 citiesSelectElement.addEventListener("change", updateCity);
+
+function changeBack() {
+  let userDate = new Date();
+  let userTime = userDate.getHours();
+  let body = document.querySelector("body");
+  if (userTime > 16) body.classList.add("dark");
+}
+
+changeBack();

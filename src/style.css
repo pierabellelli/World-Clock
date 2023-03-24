@@ -2,6 +2,13 @@ body {
   font-family: "Ubuntu", sans-serif;
   background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 }
+.dark {
+  background: linear-gradient(
+    112.1deg,
+    rgb(32, 38, 57) 11.4%,
+    rgb(63, 76, 119) 70.2%
+  );
+}
 h1 {
   text-align: center;
   font-size: 36px;
